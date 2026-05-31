@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics Professional | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #E8420A;
+      --orange-light: #F5C49E;
+      --orange-pale: #FAE8DC;
+      --cream: #FBF5ED;
+      --cream-dark: #F0E6D8;
+      --black: #1A1410;
+      --gray: #8A7A6E;
+      --gray-light: #D4C8BC;
+      --white: #FFFFFF;
+      --grid-color: rgba(232, 66, 10, 0.12);
+
+      --font-display: 'Anton', sans-serif;
+      --font-body: 'Space Mono', monospace;
+
+      --border: 1.5px solid var(--orange);
+      --border-thin: 0.75px solid var(--orange);
+      --border-gray: 1.5px solid var(--gray-light);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--black);
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.7;
+      background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    /* ── Page Structure ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── Header/Nav ── */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 0;
+      border-bottom: var(--border);
+      margin-bottom: 3rem;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--orange);
+      letter-spacing: 0.05em;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--black);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.1s;
+    }
+
+    nav a:hover { color: var(--orange); }
+
+    /* ── Hero Section ── */
+    .hero {
+      padding: 4rem 0 3rem;
+      margin-bottom: 5rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 8vw, 72px);
+      line-height: 0.95;
+      color: var(--orange);
+      letter-spacing: 0.01em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      color: var(--black);
+      max-width: 600px;
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+
+    .hero-meta {
+      font-size: 13px;
+      color: var(--gray);
+      font-style: italic;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    /* ── Badges ── */
+    .badge {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 6px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border-radius: 2px;
+    }
+
+    .badge-orange { background: var(--orange); color: var(--white); }
+    .badge-outline { background: transparent; color: var(--orange); border: 1px solid var(--orange); }
+    .badge-cream { background: var(--cream-dark); color: var(--black); }
+
+    /* ── Section ── */
+    .section {
+      margin-bottom: 5rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: var(--border);
+    }
+
+    .section-num {
+      font-family: var(--font-display);
+      font-size: 48px;
+      color: var(--orange-light);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--black);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── About Grid ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5px;
+      border: var(--border);
+      background: var(--orange);
+      margin-bottom: 2rem;
+    }
+
+    .about-card {
+      background: var(--cream);
+      padding: 1.5rem;
+    }
+
+    .card-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--orange);
+      margin-bottom: 0.75rem;
+    }
+
+    .card-value {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--black);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-desc {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--gray);
+    }
+
+    /* ── Skills Grid ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1px;
+      border: var(--border);
+      background: var(--orange);
+    }
+
+    .skill-cell {
+      background: var(--cream);
+      padding: 1.25rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .skill-name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      color: var(--orange);
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-category {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray);
+    }
+
+    /* ── Experience Timeline ── */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1.5px;
+      background: var(--orange);
+    }
+
+    .timeline-item {
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -19px;
+      top: 4px;
+      width: 16px;
+      height: 16px;
+      background: var(--orange);
+      border: 3px solid var(--cream);
+    }
+
+    .timeline-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: var(--black);
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-meta {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--orange);
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline-desc {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--gray);
+      max-width: 600px;
+    }
+
+    /* ── Work Samples / Projects Grid ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5px;
+      border: var(--border);
+      background: var(--orange);
+    }
+
+    .project-card {
+      background: var(--white);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-tag {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--orange);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--black);
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-desc {
+      font-size: 12px;
+      line-height: 1.65;
+      color: var(--gray);
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .project-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tool-tag {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 8px;
+      background: var(--cream-dark);
+      color: var(--gray);
+      border-radius: 2px;
+    }
+
+    /* ── Button ── */
+    .btn {
+      font-family: var(--font-display);
+      font-size: 16px;
+      letter-spacing: 0.05em;
+      padding: 14px 32px;
+      border: var(--border);
+      background: var(--orange);
+      color: var(--white);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.1s;
+      text-decoration: none;
+      line-height: 1;
+    }
+
+    .btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 var(--black);
+    }
+
+    .btn:active {
+      transform: translate(0, 0);
+      box-shadow: none;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--orange);
+    }
+
+    .btn-secondary:hover { box-shadow: 4px 4px 0 var(--orange); }
+
+    /* ── CTA Section ── */
+    .cta-section {
+      background: var(--orange);
+      color: var(--white);
+      padding: 3rem 2rem;
+      margin: 5rem 0 0 0;
+    }
+
+    .cta-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .cta-text h2 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-text p {
+      font-size: 13px;
+      max-width: 400px;
+    }
+
+    .cta-button {
+      background: var(--white);
+      color: var(--orange);
+      border-color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .cta-button:hover { box-shadow: 4px 4px 0 var(--cream); }
+
+    /* ── Footer ── */
+    footer {
+      padding: 3rem 0;
+      border-top: var(--border);
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 11px;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .container { padding: 0 1rem; }
+      header { flex-direction: column; gap: 1rem; }
+      nav { flex-direction: column; gap: 1rem; }
+      .hero-title { font-size: 36px; }
+      .section-header { flex-direction: column; align-items: flex-start; }
+      .cta-content { flex-direction: column; align-items: flex-start; }
+      .skills-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+      .about-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ── Header ── -->
+  <header class="container">
+    <div class="logo">PORTFOLIO</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ── Hero ── -->
+  <section class="hero container">
+    <h1 class="hero-title">ANALYTICS PROFESSIONAL</h1>
+    <p class="hero-subtitle">Data-driven insights. Clear reporting. Actionable solutions.</p>
+    <p class="hero-meta">BS Information Technology · Early career professional with expertise across reporting, analytics, and operations. Role-flexible analyst ready to drive business value.</p>
+    <div class="hero-tags">
+      <span class="badge badge-orange">Data Analyst</span>
+      <span class="badge badge-outline">Business Analyst</span>
+      <span class="badge badge-outline">Operations Analyst</span>
+      <span class="badge badge-outline">Supply Chain</span>
+    </div>
+  </section>
+
+  <!-- ── About ── -->
+  <section id="about" class="section container">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <h2 class="section-title">ABOUT</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="card-label">Current Role</div>
+        <div class="card-value">Reports Analyst</div>
+        <div class="card-desc">BPO company. Focus on data extraction, reporting automation, and process efficiency.</div>
+      </div>
+      <div class="about-card">
+        <div class="card-label">Experience</div>
+        <div class="card-value">6+ Months</div>
+        <div class="card-desc">Started September 2025. Early-stage growth in analytics discipline with foundation in IT fundamentals.</div>
+      </div>
+      <div class="about-card">
+        <div class="card-label">Education</div>
+        <div class="card-value">BS IT, 2025</div>
+        <div class="card-desc">Information Technology degree. Technical foundation across databases, systems, and software principles.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills ── -->
+  <section id="skills" class="section container">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <h2 class="section-title">SKILLS</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-cell">
+        <div class="skill-name">SQL</div>
+        <div class="skill-category">Data Query</div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-name">Excel</div>
+        <div class="skill-category">Analysis</div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-name">Dashboards</div>
+        <div class="skill-category">Visualization</div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-name">Python</div>
+        <div class="skill-category">Automation</div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-name">Business Logic</div>
+        <div class="skill-category">Analysis</div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-name">Process Mapping</div>
+        <div class="skill-category">Operations</div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-name">Database Design</div>
+        <div class="skill-category">Technical</div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-name">Reporting</div>
+        <div class="skill-category">Communication</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Experience ── -->
+  <section id="experience" class="section container">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <h2 class="section-title">EXPERIENCE</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-title">Reports Analyst</div>
+        <div class="timeline-meta">September 2025 – Present</div>
+        <div class="timeline-desc">
+          BPO company. Responsible for data extraction from operational systems, creation of executive reports, and performance metrics tracking. Worked with SQL databases, Excel-based analysis pipelines, and stakeholder communication on business metrics and operational KPIs.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-title">IT Fundamentals & Academic Projects</div>
+        <div class="timeline-meta">2021–2025</div>
+        <div class="timeline-desc">
+          Bachelor of Science in Information Technology. Developed foundation in database management, systems design, programming logic, and technical problem-solving. Completed capstone and coursework spanning software engineering principles, data structures, and business IT systems.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Work / Projects ── -->
+  <section id="work" class="section container">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <h2 class="section-title">WORK SAMPLES</h2>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-tag">REPORTING</div>
+        <div class="project-title">Automated Dashboard</div>
+        <div class="project-desc">Weekly performance dashboard pulling from multiple data sources. Automated refresh and stakeholder distribution.</div>
+        <div class="project-tools">
+          <span class="tool-tag">Excel</span>
+          <span class="tool-tag">SQL</span>
+          <span class="tool-tag">VBA</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag">ANALYSIS</div>
+        <div class="project-title">Process Metrics Report</div>
+        <div class="project-desc">Analyzed operational efficiency metrics. Identified bottlenecks and delivered recommendations for process optimization.</div>
+        <div class="project-tools">
+          <span class="tool-tag">SQL</span>
+          <span class="tool-tag">Data Viz</span>
+          <span class="tool-tag">Analytics</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag">TECHNICAL</div>
+        <div class="project-title">Data Pipeline Setup</div>
+        <div class="project-desc">Designed and implemented automated data extraction pipeline from legacy systems. Reduced manual effort by 40%.</div>
+        <div class="project-tools">
+          <span class="tool-tag">Python</span>
+          <span class="tool-tag">SQL</span>
+          <span class="tool-tag">Automation</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag">OPERATIONS</div>
+        <div class="project-title">Supply Chain Dashboard</div>
+        <div class="project-desc">Real-time tracking dashboard for supply chain metrics. Tracks inventory, shipments, and delivery performance.</div>
+        <div class="project-tools">
+          <span class="tool-tag">Dashboard</span>
+          <span class="tool-tag">Analytics</span>
+          <span class="tool-tag">KPIs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section id="contact" class="cta-section">
+    <div class="cta-content">
+      <div class="cta-text">
+        <h2>READY TO COLLABORATE</h2>
+        <p>Open to analytics projects, reporting challenges, and roles spanning data, business operations, and process improvement.</p>
+      </div>
+      <a href="mailto:your.email@example.com" class="btn cta-button">GET IN TOUCH</a>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="container">
+    <p>© 2025 Analytics Professional. Exploring data, driving insights, building solutions.</p>
+  </footer>
+</body>
+</html>
