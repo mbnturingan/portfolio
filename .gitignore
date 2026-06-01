@@ -1,3 +1,5 @@
+// ignore all files except index.html, styles.css, and .gitignore
 *
 !index.html
+!styles.css
 !.gitignore
