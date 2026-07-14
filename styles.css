@@ -434,6 +434,14 @@ nav a:hover { color: var(--orange); }
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-link {
+  margin-top: auto;
+  align-self: flex-start;
+  font-size: 11px;
+  padding: 8px 12px;
 }
 
 .tool-tag {
@@ -522,7 +530,23 @@ nav a:hover { color: var(--orange); }
   color: var(--orange);
 }
 
+.btn-sm { font-size: 12px; padding: 8px 16px; }
+
 .btn-secondary:hover { box-shadow: 4px 4px 0 var(--orange); }
+
+  .disabled-btn {
+    border-color: var(--gray-light);
+    color: var(--gray);
+    cursor: not-allowed;
+    opacity: 0.7;
+    pointer-events: none;
+    box-shadow: none;
+  }
+
+  .disabled-btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
 
 /* ── CTA Section ── */
 .cta-section {
